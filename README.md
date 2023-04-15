@@ -15,7 +15,7 @@ In your GitHub repo, create the follow secrets with the specified values.
 
 Make your `main.tf`, `backend.tf`, and `variables.tf` files.
 
-Initialize Terraform Locally
+Initialize Terraform Locally--
 ```bash
 terraform init
 ```
