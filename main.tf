@@ -49,7 +49,7 @@ resource "azurerm_cosmosdb_account" "db" {
   resource_group_name = azurerm_resource_group.rg.name
   offer_type          = "Standard"
   kind                = "MongoDB"
-
+ 
   enable_automatic_failover = true
 
   capabilities {
