@@ -114,45 +114,23 @@ resource "azurerm_cosmosdb_account" "db" {
     failover_priority = 0
   }
 }
-
-resource "azurerm_virtual_network" "VN" {
-  name                = "testvnetsmi"
-  address_space       = ["10.0.0.0/16"]
+resource "azurerm_app_service_plan" "webapp_plan" {
+  name                = "webapp-plan-smit"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-}
-
-// Subnet
-
-resource "azurerm_subnet" "SN" {
-  name                 = "AzureFirewallSubnetsmit"
-  resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.example.name
-  address_prefixes     = ["10.0.1.0/24"]
-}
-
-// Public IP
-
-resource "azurerm_public_ip" "PI" {
-  name                = "testpipsmit"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  allocation_method   = "Static"
-  sku                 = "Standard"
-}
-
-// Firewall
-
-resource "azurerm_firewall" "FW" {
-  name                = "testfirewallsmit"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  sku_name            = "AZFW_VNet"
-  sku_tier            = "Standard"
-
-  ip_configuration {
-    name                 = "configuration"
-    subnet_id            = azurerm_subnet.example.id
-    public_ip_address_id = azurerm_public_ip.example.id
+  sku {
+    tier = "Free"
+    size = "F1"
   }
+}
+
+resource "azurerm_app_service" "webapp" {
+  name                = "smit-webapp"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  app_service_plan_id = azurerm_app_service_plan.webapp_plan.id
+}
+
+output "webapp_url" {
+  value = azurerm_app_service.webapp.default_site_hostname
 }
