@@ -114,7 +114,7 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 }
 resource "azurerm_app_service_plan" "webapp_plan" {
-  name                = "webapp-plan-lek"
+  name                = "webapp-plan-le"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku {
@@ -124,7 +124,7 @@ resource "azurerm_app_service_plan" "webapp_plan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "lek-webapp-new"
+  name                = "le-webapp-new"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.webapp_plan.id
