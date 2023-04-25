@@ -43,14 +43,14 @@ resource "azurerm_storage_account" "storage" {
   tags = local.tags
 }
 resource "azurerm_application_insights" "example" {
-  name                = "workspace-example-ai-smit"
+  name                = "workspace-example-ai-lek"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   application_type    = "web"
 }
 
 resource "azurerm_key_vault" "example" {
-  name                = "mit-workspacevault-new3"
+  name                = "lek-workspacevault-new4"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   tenant_id           = data.azurerm_subscription.current.tenant_id
@@ -59,7 +59,7 @@ resource "azurerm_key_vault" "example" {
 
 
 resource "azurerm_machine_learning_workspace" "example" {
-  name                    = "machine-learning-ws-smit"
+  name                    = "machine-learning-ws-lek"
   location                = azurerm_resource_group.rg.location
   resource_group_name     = azurerm_resource_group.rg.name
   application_insights_id = azurerm_application_insights.example.id
@@ -115,7 +115,7 @@ resource "azurerm_cosmosdb_account" "db" {
 }
 
 resource "azurerm_app_service_plan" "webapp_plan" {
-  name                = "webapp-plan-smit"
+  name                = "webapp-plan-lek"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku {
@@ -125,7 +125,7 @@ resource "azurerm_app_service_plan" "webapp_plan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "mit-webapp-new"
+  name                = "lek-webapp-new"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.webapp_plan.id
