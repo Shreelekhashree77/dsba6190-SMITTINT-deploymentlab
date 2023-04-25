@@ -43,14 +43,14 @@ resource "azurerm_storage_account" "storage" {
   tags = local.tags
 }
 resource "azurerm_application_insights" "example" {
-  name                = "workspace-example-ai-lek"
+  name                = "workspace-example-ai-poo"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   application_type    = "web"
 }
 
 resource "azurerm_key_vault" "example" {
-  name                = "lek-workspacevault-new4"
+  name                = "poo-workspacevault-new4"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   tenant_id           = data.azurerm_subscription.current.tenant_id
@@ -59,7 +59,7 @@ resource "azurerm_key_vault" "example" {
 
 
 resource "azurerm_machine_learning_workspace" "example" {
-  name                    = "machine-learning-ws-lek"
+  name                    = "machine-learning-ws-poo"
   location                = azurerm_resource_group.rg.location
   resource_group_name     = azurerm_resource_group.rg.name
   application_insights_id = azurerm_application_insights.example.id
@@ -114,7 +114,7 @@ resource "azurerm_cosmosdb_account" "db" {
   }
 }
 resource "azurerm_app_service_plan" "webapp_plan" {
-  name                = "webapp-plan-le"
+  name                = "webapp-plan-poo"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   sku {
@@ -124,7 +124,7 @@ resource "azurerm_app_service_plan" "webapp_plan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "le-webapp-new"
+  name                = "poo-webapp-new"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.webapp_plan.id
