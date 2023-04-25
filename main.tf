@@ -125,7 +125,7 @@ resource "azurerm_app_service_plan" "webapp_plan" {
 }
 
 resource "azurerm_app_service" "webapp" {
-  name                = "lek-webapp-new"
+  name                = "le k-webapp-new"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.webapp_plan.id
@@ -133,4 +133,5 @@ resource "azurerm_app_service" "webapp" {
 
 output "webapp_url" {
   value = azurerm_app_service.webapp.default_site_hostname
+  
 }
