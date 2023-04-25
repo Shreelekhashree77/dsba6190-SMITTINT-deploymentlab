@@ -170,5 +170,6 @@ resource "azurerm_app_service" "wp" {
 
 output "webapp_url" {
   value = azurerm_app_service.wp.default_site_hostname
-  
+
+
 }
